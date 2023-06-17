@@ -1,0 +1,66 @@
+h1{
+    text-align: center;
+    font-size: 60px;
+}
+.authorBook, .NPages{
+    display: flex;
+    justify-content: space-between;
+}
+.addBook{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+h2{
+    text-align: center;
+}
+.form{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.486);
+}
+
+
+.titleBook{
+    display: flex;
+    justify-content: space-between;
+}
+
+.active{
+    display: flex;
+    justify-content: space-between;
+}
+
+form button{
+    justify-self: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.booksgrid{
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.bookcard{
+    grid-template-columns: 1fr 2fr;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    min-height: 150px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.336);
+
+}
+.bookcardtitle{
+    font-size: 36px;
+    font-weight: 900;
+    grid-column: 1/3;
+    align-self: center;
+
+}

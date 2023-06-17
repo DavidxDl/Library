@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>Books</h1>
+
+    <div class="addBook">
+        <div class="form">
+            <form action="/">
+                <div class="titleBook">
+                    <label for="Title">Title:</label>
+                    <input type="text" name="Title" id="Title">
+                </div>
+                <div class="authorBook">
+                    <label for="Author">Author:</label>
+                    <input type="text" name="Author" id="Author">
+                </div>
+                <div class="NPages">
+                    <label for="Npages">Paginas:</label>
+                    <input type="text" name="Npages" id="NPages">
+                </div>
+                <div class="HaveIReadIt">
+                    <label for="HaveIReadIt">Have i Read it?:</label>
+                    <input type="radio" name="HaveIReadIt" id="HaveIReadIt" value="Yes">
+                    <label for="Yes">Yes</label>
+                    <input type="radio" name="HaveIReadIt" id="HaveIReadIt" value="No">
+                    <label for="No">No</label>
+                </div>
+                <button onclick="returnValue()" >Add Book</button>
+            </form>
+        </div>
+        <button type="button" class="addbtn">new book</button>
+        <button type="button" class="UpdateLibrary" onclick="checkLibrary()">Update Library</button>
+    </div>
+    <div class="booksgrid">
+            </div>
+
+
+
+
+    <script src="java.js"></script>
+</body>
+</html>
