@@ -1,26 +1,29 @@
-let library = [{
-    title: 'The Witcher',
-    author: 'Andrej Sapowsky',
-    Npages: 300,
-    info: '',
-    haveIReadIt: true
-    },
-    {
-    title: 'Harry Potter',
-    author: 'JK Rowling',
-    Npages: 300,
-    info: '',
-    haveIReadIt: false
+let library = [];
 
-    
-}];
+
+
+
+/* window.onload = () => {
+    document.getElementById('Title').onchange = validateInput;
+    document.getElementById('Author').onchange = validateInput;
+    document.getElementById('NPages').onchange = validateInput;
+} */
+
 const form = document.querySelector('form');
 const btn = document.querySelector(".addbtn");
 const booksgrid = document.querySelector('.booksgrid');
+const submitBook = document.getElementById('submitBook');
 
+getLocalStorage();
 
+submitBook.addEventListener('click', validateInput);
 
+btn.addEventListener('click', () =>{
+    document.querySelector('.form').classList.toggle('active');   
+    }
+)
 
+window.addEventListener('load', updateLibrary);
 
 
 function Book (title, author, Npages, haveIReadIt){
@@ -34,15 +37,23 @@ function Book (title, author, Npages, haveIReadIt){
     }
 }
 
-function handleForm (event) { event.preventDefault(); }
+function validateInput (){
+    const form = document.querySelector('form');
+
+    if(form.checkValidity()){
+        returnValue();
+    }
+}
+
 
 function addToLibrary (book){
     library.push(book);
+    localStorage.setItem('library', JSON.stringify(library));
 }
 
 
 
-function checkLibrary(){
+function updateLibrary(){
     booksgrid.innerHTML = '';
 
    library.forEach(book => {
@@ -69,47 +80,25 @@ function checkLibrary(){
 
 function returnValue(){
     document.querySelector('.form').classList.toggle('active');
-    const bookCard = document.createElement('div');
-    bookCard.classList.add('bookcard');
     const TitleValue = document.getElementById('Title').value;
-    let title = document.createElement('h2');
-    title.classList.add('bookcardtitle');
-    title.innerHTML = `Title: ${TitleValue}`
     const AuthorValue = document.getElementById('Author').value;
-    let author = document.createElement('h3');
-    author.innerHTML = `Author: ${AuthorValue}`;
     const NpagesValue = document.getElementById('NPages').value
-    let Npages = document.createElement('h3');
-    Npages.innerHTML = `Pages: ${NpagesValue}`;
-    const haveIReadItValue = document.getElementById('HaveIReadIt').value;
-    let haveIReadIt = document.createElement('h3');
-    haveIReadIt.innerHTML = `Have i Read it?: ${haveIReadItValue}`;
-        
+    const haveIReadItValue = document.getElementById('HaveIReadIt').value;        
+
     let book = new Book(TitleValue, AuthorValue, NpagesValue, haveIReadItValue)
     addToLibrary(book);
-
-    bookCard.appendChild(title);
-    bookCard.appendChild(author);
-    bookCard.appendChild(Npages);
-    bookCard.appendChild(haveIReadIt);
-    booksgrid.appendChild(bookCard);
+    updateLibrary();
     }
 
 
 
 
-
-
-
-
-
-
-form.addEventListener('submit',handleForm)
-
-btn.addEventListener('click', () =>{
-    document.querySelector('.form').classList.toggle('active');   
+function getLocalStorage () {
+    if (localStorage.getItem('library')){
+        library = JSON.parse(localStorage.getItem('library'));
+    } else {
+        localStorage.setItem('library', JSON.stringify(library));
     }
-)
-
-window.addEventListener('load', checkLibrary);
+    updateLibrary();
+}
 

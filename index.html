@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,15 +16,15 @@
             <form action="/">
                 <div class="titleBook">
                     <label for="Title">Title:</label>
-                    <input type="text" name="Title" id="Title">
+                    <input type="text" name="Title" id="Title" required>
                 </div>
                 <div class="authorBook">
                     <label for="Author">Author:</label>
-                    <input type="text" name="Author" id="Author">
+                    <input type="text" name="Author" id="Author" required>
                 </div>
                 <div class="NPages">
                     <label for="Npages">Paginas:</label>
-                    <input type="text" name="Npages" id="NPages">
+                    <input type="number" name="Npages" id="NPages" min="10" max="5000" required> 
                 </div>
                 <div class="HaveIReadIt">
                     <label for="HaveIReadIt">Have i Read it?:</label>
@@ -33,14 +33,15 @@
                     <input type="radio" name="HaveIReadIt" id="HaveIReadIt" value="No">
                     <label for="No">No</label>
                 </div>
-                <button onclick="returnValue()" >Add Book</button>
+                <button id="submitBook">Add Book</button>
             </form>
         </div>
         <button type="button" class="addbtn">new book</button>
-        <button type="button" class="UpdateLibrary" onclick="checkLibrary()">Update Library</button>
+        <button type="button" class="UpdateLibrary" onclick="updateLibrary()">Update Library</button>
     </div>
     <div class="booksgrid">
-            </div>
+        
+    </div>
 
 
 
