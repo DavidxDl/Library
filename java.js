@@ -1,14 +1,5 @@
 let library = [];
 
-
-
-
-/* window.onload = () => {
-    document.getElementById('Title').onchange = validateInput;
-    document.getElementById('Author').onchange = validateInput;
-    document.getElementById('NPages').onchange = validateInput;
-} */
-
 const form = document.querySelector('form');
 const btn = document.querySelector(".addbtn");
 const booksgrid = document.querySelector('.booksgrid');
@@ -16,7 +7,10 @@ const submitBook = document.getElementById('submitBook');
 
 getLocalStorage();
 
-submitBook.addEventListener('click', validateInput);
+submitBook.addEventListener('click', (e) => {
+    e.preventDefault();
+    validateInput();
+});
 
 btn.addEventListener('click', () =>{
     document.querySelector('.form').classList.toggle('active');   
@@ -42,6 +36,8 @@ function validateInput (){
 
     if(form.checkValidity()){
         returnValue();
+    } else {
+        form.reportValidity();
     }
 }
 
